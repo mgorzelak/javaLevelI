@@ -1,12 +1,13 @@
 package odtwarzacz;
 
 import java.util.Scanner;
-
+//int choosenNumber = getScanner().nextInt();
 public class Main {
+	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		System.out.println("odtarzacz muzyczny");
-
+		//TODO skanery do poprawy
 		Scanner typeOfMusicNumber= new Scanner(System.in);
 		System.out.println("wybierz gatunek muzyczny");
 		System.out.println("1.Rock");
@@ -14,7 +15,7 @@ public class Main {
 		System.out.println("3.Pop");
 		System.out.println("4.Rnb");
 		
-		int music= typeOfMusicNumber.nextInt();
+		int music= getScanner().nextInt();//TODO skorzystaj z funkcji skanera wrzuc ja od razu switcha
 		switch (music){
 		
 		case 1:
@@ -36,49 +37,84 @@ public class Main {
 	}
 		Scanner volumeOfMusicNumber= new Scanner(System.in);
 		System.out.println("podaj glosnosc muzyki");
-		System.out.println("1.Glosno");
-		System.out.println("2.Cicho");
-		int volume= volumeOfMusicNumber.nextInt();
-		switch (volume){
 		
-		case 1:
-			System.out.println("Glosno");
-			
-			break;
-		case 2:
-			System.out.println("Cicho");
-			
-			break;
-		}
-		Scanner toneOfMusicNumber= new Scanner(System.in);
-		System.out.println("wybierz ton");
+		System.out.println("podaj czy chcesz cicha muzyke -true/false");
+		boolean volumeL= getScanner().nextBoolean();
 		
-		System.out.println("1.Tony niskie");
-		System.out.println("2.Tony srednie");
-		System.out.println("3.Tony wysokie");
-		int tone= toneOfMusicNumber.nextInt();
-		switch (tone){
+
+	    if(volumeL==true){
+	    	System.out.println("wybrales cicha muzyke");	
+	    }
+	    else {
+	    	System.out.println("wybrales glosna muzyke");	
+	    }
+	
 		
-		case 1:
-			System.out.println("Tony niskie");
+		System.out.println("podaj czy chcesz miec ton niski- true/false");
+		boolean toneL= getScanner().nextBoolean();
+		
+		System.out.println("podaj czy chcesz miec ton sredni- true/false");
+		boolean toneM= getScanner().nextBoolean(); 
+		
+		System.out.println("podaj czy chcesz miec ton wysoki- true/false");
+		boolean toneH= getScanner().nextBoolean(); 
+		
+	     //TODO uzyj if i &&
+	    
+	    
+	    
+	    if(toneL==true && toneM==false && toneH==false){
+	    	System.out.println("wybrales tylko ton niski");	
+	    }
+	    else if (toneL==false && toneM==true && toneH==false){
+	    	System.out.println("wybrales tylko ton sredni");	
+	    }
+	    else if (toneL==false && toneM==false && toneH==true){
+	    	System.out.println("wybrales tylko ton wysoki");	
+	    }
+	    else if (toneL==true && toneM==true && toneH==false){
+	    	System.out.println("wybrales  tony niski i sredni");	
+	    }
+	    else if (toneL==true && toneM==false && toneH==true){
+	    	System.out.println("wybrales  tony niski i wysoki");	
+	    }
+	    else if (toneL==false && toneM==true && toneH==true){
+	    	System.out.println("wybrales  tony sredni i wysoki");	
+	    }
+	    
+	    else if (toneL==true && toneM==true && toneH==true){
+	    	System.out.println("wybrales  tony niski, sredni i wysoki");	
+	    }
+	    else{
+	    	System.out.println("musi byc wybrany przynajmniej jeden ton!!!!");
+	    }
+	   // switch (tone){
+		
+	 	//case 1:
+		//System.out.println("Tony niskie");
+		
+		//break;
+		//case 2:
+		//System.out.println("Tony srednie");
 			
-			break;
-		case 2:
-			System.out.println("Tony srednie");
+		//break;
 			
-			break;
+		//case 3:
+		//System.out.println("Tony wysokie");
 			
-		case 3:
-			System.out.println("Tony wysokie");
-			
-			break;
-			
-			
-		}
+		//break;
+				
+		//}	
 		Scanner leftSpeaker= new Scanner(System.in);
 		System.out.println("wybierz balans dla lewego glosnika od 0 DB do 10 DB (decybeli)");
 		double speaker1= leftSpeaker.nextInt();
 		double speaker2=10-speaker1;
 		System.out.println("glosnik lewy ma "+speaker1+" decybeli"+"glosnik prawy ma "+speaker2+" decybeli");
+	}
+	public static Scanner getScanner() {
+		if (scanner != null) {
+			scanner = new Scanner(System.in);
+		}
+		return scanner;
 	}
 }
