@@ -10,11 +10,11 @@ public class Main {
 	int circut;
 
 	public static void main(String[] args) {
-		checkSides();
-		showCircut();
+		fillTableOfLenght();
+		System.out.println("obwod wielokata wynosi: "+showCircut());
 	}
 
-	public static void checkSides() {
+	public static void fillTableOfLenght() {
 		if (tableOfLenght.length < 3) {
 			System.out.println("nie da sie zbudowac wielokata");
 		} else {
@@ -38,7 +38,7 @@ public class Main {
 		for (int i = 0; i < tableOfLenght.length; i++) {
 			circut = circut + tableOfLenght[i];
 		}
-		System.out.println("obwod wielokata wynosi: "+circut);
+		
 		return circut;
 
 	}

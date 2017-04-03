@@ -16,8 +16,8 @@ public class Main {
 	     //int  wynik=1;// przy u¿yciu pêtli
 	    //for(int i=0;i<choosenPowerN;i++){
 	   // wynik=wynik*choosenNumberX;
-	   // System.out.println("liczba x do potegi n wynosi: "+wynik);
 	//}
+		// System.out.println("liczba x do potegi n wynosi: "+wynik);
 		int potega = (int)Math.pow(choosenNumberX, choosenPowerN);// rozwiazanie za pomoca funkcji matematycznych z biblioteki Math w javie.
 
         System.out.println(choosenNumberX+" podniesione do potêgi "+choosenPowerN+" wynosi: "+potega);
