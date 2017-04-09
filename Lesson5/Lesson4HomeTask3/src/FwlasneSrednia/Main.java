@@ -31,6 +31,8 @@ public class Main {
 			System.out.println("srednia jest rowna: " + calculateAvarrage(tableOfMarksP));
 			System.out.println("mediana jest rowna: " + mediana(tableOfMarksP));
 			getWorrning(tableOfMarksP);
+			System.out.println("najlepsza ocena jest rowna: " + getBestMark(tableOfMarksP));
+			System.out.println("najgorsza ocena jest rowna: " + getWorstMark(tableOfMarksP));
 			break;
 		case 2:
 			System.out.println("2.Gimnazjum");
@@ -39,6 +41,8 @@ public class Main {
 			System.out.println("srednia jest rowna: " + calculateAvarrage(tableOfMarksG));
 			System.out.println("mediana jest rowna: " + mediana(tableOfMarksG));
 			getWorrning(tableOfMarksG);
+			System.out.println("najlepsza ocena jest rowna: " + getBestMark(tableOfMarksG));
+			System.out.println("najgorsza ocena jest rowna: " + getWorstMark(tableOfMarksG));
 			break;
 		case 3:
 			System.out.println("3.Liceum");
@@ -47,6 +51,10 @@ public class Main {
 			System.out.println("srednia jest rowna: " + calculateAvarrage(tableOfMarksL));
 			System.out.println("mediana jest rowna: " + mediana(tableOfMarksL));
 			getWorrning(tableOfMarksL);
+			
+	
+			System.out.println("najlepsza ocena jest rowna: " + getBestMark(tableOfMarksL));
+			System.out.println("najgorsza ocena jest rowna: " + getWorstMark(tableOfMarksL));
 			break;
 		default:
 			System.out.println("nie wybrales zadnej szkoly");
@@ -102,15 +110,25 @@ public class Main {
 		}
 	}
 
-	public static void getBestMark() {
-		// Arrays.sort(tableOfMarks);
-
+	public static double getBestMark(double [] tableOfMarks) {
+	
+		double max = tableOfMarks[0];
+	    for (int i=1; i<tableOfMarks.length; i++) {
+	        max = (tableOfMarks[i] > max)? tableOfMarks[i] : max;
+	    }
+	    return max;
 	}
 
-	public static void getWorstMark() {
-
+	public static double getWorstMark(double [] tableOfMarks) {
+		double min = tableOfMarks[0];
+	    for (int i=1; i<tableOfMarks.length; i++) {
+	        min = (tableOfMarks[i] < min)? tableOfMarks[i] : min;
+	    }
+	    return min;
 	}
 
+	
+	
 	public static Scanner getScanner() {
 		if (scanner != null) {
 			scanner = new Scanner(System.in);
